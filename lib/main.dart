@@ -1,6 +1,6 @@
-import 'package:example_extended_bloc/cc_base_impl/cc_base_bloc_impl.dart';
-import 'package:example_extended_bloc/extended_impl/extended_bloc.dart';
-import 'package:example_extended_bloc/widgets/cc_bloc_consumer.dart';
+import 'cc_base_impl/cc_base_bloc_impl.dart';
+import 'extended_impl/extended_impl_bloc.dart';
+import 'widgets/cc_bloc_consumer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loader_overlay/loader_overlay.dart';
@@ -52,9 +52,9 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: BlocProvider<ExtendedBloc>(
-        create: (context) => ExtendedBloc(),
-        child: BlocBuilder<ExtendedBloc, ExtendedState>(
+      body: BlocProvider<ExtendedImplBloc>(
+        create: (context) => ExtendedImplBloc(),
+        child: BlocBuilder<ExtendedImplBloc, ExtendedImplState>(
           builder: (context, state) {
             return Center(
               child: Column(
@@ -68,19 +68,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                   TextButton(
-                      onPressed: () => context
-                          .read<ExtendedBloc>()
-                          .add(const CustomExtendedEvent(eventProp: 'test')),
+                      onPressed: () => context.read<ExtendedImplBloc>().add(
+                          const CustomExtendedImplEvent(eventProp: 'test')),
                       child: const Text('Click me')),
-                  const TestWidget<ExtendedBloc, ExtendedState>(),
+                  const TestWidget<ExtendedImplBloc, ExtendedImplState>(),
                   Text('Extended val: ${state.extendedProperty}'),
-                  CCBlocConsumer<ExtendedBloc, ExtendedState>(
+                  CCBlocConsumer<ExtendedImplBloc, ExtendedImplState>(
                       listener: (context, state) {},
                       builder: (context, state) {
                         return TextButton(
-                          onPressed: () => context
-                              .read<ExtendedBloc>()
-                              .add(const CustomExtendedEvent(eventProp: '')),
+                          onPressed: () => context.read<ExtendedImplBloc>().add(
+                              const CustomExtendedImplEvent(eventProp: '')),
                           child: const Text('CCBlocConsumer'),
                         );
                       }),

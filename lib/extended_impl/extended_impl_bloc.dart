@@ -5,15 +5,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../cc_base/cc_base_bloc.dart';
 import '../cc_base_impl/cc_base_bloc_impl.dart';
 
-part 'extended_event.dart';
-part 'extended_state.dart';
+part 'extended_impl_event.dart';
+part 'extended_impl_state.dart';
 
 int _n = 0;
 
-class ExtendedBloc extends CCBaseBlocImpl<CCBaseEvent, ExtendedState> {
-  ExtendedBloc() : super(ExtendedInitial()) {
+class ExtendedImplBloc extends CCBaseBlocImpl<CCBaseEvent, ExtendedImplState> {
+  ExtendedImplBloc() : super(ExtendedInitial()) {
     on<ClearError>(onClearError);
-    on<CustomExtendedEvent>(_onCustomExtendedEvent);
+    on<CustomExtendedImplEvent>(_onCustomExtendedEvent);
   }
 
   @override
@@ -25,7 +25,7 @@ class ExtendedBloc extends CCBaseBlocImpl<CCBaseEvent, ExtendedState> {
   }
 
   void _onCustomExtendedEvent(
-      CustomExtendedEvent event, Emitter<CCBaseStateImpl> emit) async {
+      CustomExtendedImplEvent event, Emitter<CCBaseStateImpl> emit) async {
     print('Executing custom event: ${event.eventProp}');
     emit(state.copyWith(status: CCBlocStatus.inProgress));
     await Future.delayed(const Duration(seconds: 3));
