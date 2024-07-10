@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:example_extended_bloc/bloc_status.dart';
+import '../util/bloc_status.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../cc_base/cc_base_bloc.dart';
 import '../cc_base_impl/cc_base_bloc_impl.dart';

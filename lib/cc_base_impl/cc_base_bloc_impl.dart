@@ -1,7 +1,7 @@
 import 'package:example_extended_bloc/cc_base/cc_base_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc_status.dart';
+import '../../util/bloc_status.dart';
 
 part 'cc_base_event_impl.dart';
 part 'cc_base_state_impl.dart';
