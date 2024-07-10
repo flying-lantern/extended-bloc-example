@@ -15,7 +15,10 @@ class RegistrationBloc extends CCBaseBlocImpl<CCBaseEvent, RegistrationState> {
   }
 
   void _onFirstNameChanged(
-      FirstNameChanged event, Emitter<RegistrationState> emit) {}
+      FirstNameChanged event, Emitter<RegistrationState> emit) {
+    emit(state.copyWith(status: CCBlocStatus.inProgress));
+    emit(state.copyWith(fName: event.name, status: CCBlocStatus.success));
+  }
 
   void _onLastNameChanged(
       LastNameChanged event, Emitter<RegistrationState> emit) {}

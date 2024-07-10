@@ -1,8 +1,10 @@
 import 'package:example_extended_bloc/cc_base/cc_base_bloc.dart';
 import 'package:example_extended_bloc/extended_base/extended_base_bloc.dart';
+import 'package:example_extended_bloc/widgets/registration_bloc_consumer.dart';
 
 import 'cc_base_impl/cc_base_bloc_impl.dart';
 import 'extended_impl/extended_impl_bloc.dart';
+import 'registration/registration_bloc.dart';
 import 'widgets/cc_bloc_consumer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -89,6 +91,10 @@ class _MyHomePageState extends State<MyHomePage> {
                           );
                         }),
                     const _TestWidgetTwo(),
+                    BlocProvider<RegistrationBloc>(
+                      create: (context) => RegistrationBloc(),
+                      child: const RegistrationWidget(),
+                    ),
                   ],
                 ),
               ),
@@ -147,5 +153,21 @@ class TestWidget<B extends StateStreamable<S>, S extends CCBaseStateImpl>
     }, builder: (context, state) {
       return Text('${state.errorCode}');
     });
+  }
+}
+
+class RegistrationWidget extends StatelessWidget {
+  const RegistrationWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return RegistrationBlocConsumer<RegistrationBloc, RegistrationState>(
+      builder: (_, state) => ElevatedButton(
+        onPressed: () => context
+            .read<RegistrationBloc>()
+            .add(const FirstNameChanged(name: '')),
+        child: const Text('Registration Test'),
+      ),
+    );
   }
 }
