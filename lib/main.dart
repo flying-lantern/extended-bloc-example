@@ -99,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class TestWidget<B extends StateStreamable<S>, S extends CCBaseState>
+class TestWidget<B extends StateStreamable<S>, S extends CCBaseStateImpl>
     extends StatelessWidget {
   const TestWidget({super.key});
 

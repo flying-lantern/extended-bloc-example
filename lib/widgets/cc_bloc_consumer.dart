@@ -4,7 +4,7 @@ import 'package:loader_overlay/loader_overlay.dart';
 
 import '../cc_base_impl/cc_base_bloc_impl.dart';
 
-class CCBlocConsumer<B extends StateStreamable<S>, S extends CCBaseState>
+class CCBlocConsumer<B extends StateStreamable<S>, S extends CCBaseStateImpl>
     extends StatelessWidget {
   const CCBlocConsumer({
     super.key,

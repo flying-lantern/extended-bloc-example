@@ -9,14 +9,14 @@ part 'extended_state.dart';
 
 int _n = 0;
 
-class ExtendedBloc extends CCBaseBloc<CCBaseEvent, ExtendedState> {
+class ExtendedBloc extends CCBaseBlocImpl<CCBaseEventImpl, ExtendedState> {
   ExtendedBloc() : super(ExtendedInitial()) {
     on<ClearError>(onClearError);
     on<CustomExtendedEvent>(_onCustomExtendedEvent);
   }
 
   @override
-  void onClearError(CCBaseEvent event, Emitter<CCBaseState> emit) {
+  void onClearError(CCBaseEventImpl event, Emitter<CCBaseStateImpl> emit) {
     super.onClearError(event, emit);
     print('did an override');
     _n++;
@@ -24,7 +24,7 @@ class ExtendedBloc extends CCBaseBloc<CCBaseEvent, ExtendedState> {
   }
 
   void _onCustomExtendedEvent(
-      CustomExtendedEvent event, Emitter<CCBaseState> emit) async {
+      CustomExtendedEvent event, Emitter<CCBaseStateImpl> emit) async {
     print('Executing custom event: ${event.eventProp}');
     emit(state.copyWith(status: CCBlocStatus.inProgress));
     await Future.delayed(const Duration(seconds: 3));

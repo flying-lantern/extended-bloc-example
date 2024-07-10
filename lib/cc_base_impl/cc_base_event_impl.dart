@@ -1,12 +1,12 @@
 part of 'cc_base_bloc_impl.dart';
 
-abstract class CCBaseEvent extends Equatable {
-  const CCBaseEvent();
+abstract class CCBaseEventImpl extends Equatable {
+  const CCBaseEventImpl();
 
   @override
   List<Object> get props => [];
 }
 
-final class ClearError extends CCBaseEvent {
+final class ClearError extends CCBaseEventImpl {
   const ClearError();
 }

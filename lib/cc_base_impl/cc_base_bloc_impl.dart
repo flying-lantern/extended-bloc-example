@@ -6,12 +6,13 @@ import '../bloc_status.dart';
 part 'cc_base_event_impl.dart';
 part 'cc_base_state_impl.dart';
 
-class CCBaseBloc<Event, State extends CCBaseState> extends Bloc<Event, State> {
-  CCBaseBloc(super.initialState);
+class CCBaseBlocImpl<Event, State extends CCBaseStateImpl>
+    extends Bloc<Event, State> {
+  CCBaseBlocImpl(super.initialState);
 
   // CCBaseBloc() : super(const CCBaseInitial());
 
-  void onClearError(Event event, Emitter<CCBaseState> emit) {
+  void onClearError(Event event, Emitter<CCBaseStateImpl> emit) {
     emit(state.copyWith(
       errorCode: '',
       errorMessage: '',

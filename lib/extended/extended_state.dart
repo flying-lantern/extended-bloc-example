@@ -1,6 +1,6 @@
 part of 'extended_bloc.dart';
 
-final class ExtendedState extends CCBaseState {
+final class ExtendedState extends CCBaseStateImpl {
   const ExtendedState({
     this.extendedProperty,
     super.status,
@@ -23,7 +23,7 @@ final class ExtendedState extends CCBaseState {
     CCBlocStatus? status,
     String? errorCode,
     String? errorMessage,
-    CCBaseEvent? blocEvent,
+    CCBaseEventImpl? blocEvent,
   }) =>
       ExtendedState(
         extendedProperty: extendedProperty ?? this.extendedProperty,

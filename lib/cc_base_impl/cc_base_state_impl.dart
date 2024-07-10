@@ -1,7 +1,7 @@
 part of 'cc_base_bloc_impl.dart';
 
-class CCBaseState extends Equatable {
-  const CCBaseState({
+class CCBaseStateImpl extends Equatable {
+  const CCBaseStateImpl({
     this.errorCode,
     this.errorMessage,
     this.status = CCBlocStatus.initial,
@@ -11,7 +11,7 @@ class CCBaseState extends Equatable {
   final String? errorCode;
   final String? errorMessage;
   final CCBlocStatus status;
-  final CCBaseEvent? blocEvent;
+  final CCBaseEventImpl? blocEvent;
 
   @override
   List<Object?> get props => [
@@ -21,13 +21,13 @@ class CCBaseState extends Equatable {
         blocEvent,
       ];
 
-  CCBaseState copyWith({
+  CCBaseStateImpl copyWith({
     String? errorCode,
     String? errorMessage,
     CCBlocStatus? status,
-    CCBaseEvent? blocEvent,
+    CCBaseEventImpl? blocEvent,
   }) =>
-      CCBaseState(
+      CCBaseStateImpl(
         errorCode: errorCode ?? this.errorCode,
         errorMessage: errorMessage ?? this.errorMessage,
         status: status ?? this.status,
@@ -35,6 +35,6 @@ class CCBaseState extends Equatable {
       );
 }
 
-final class CCBaseInitial extends CCBaseState {
+final class CCBaseInitial extends CCBaseStateImpl {
   const CCBaseInitial();
 }
