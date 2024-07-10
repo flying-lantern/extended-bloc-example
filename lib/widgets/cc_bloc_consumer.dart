@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 
-import '../cc_base_impl/cc_base_bloc_impl.dart';
+import '../cc_base/cc_base_bloc.dart';
 
-class CCBlocConsumer<B extends StateStreamable<S>, S extends CCBaseStateImpl>
+class CCBlocConsumer<B extends StateStreamable<S>, S extends CCBaseState>
     extends StatelessWidget {
   const CCBlocConsumer({
     super.key,

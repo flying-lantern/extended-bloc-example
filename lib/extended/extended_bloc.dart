@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:example_extended_bloc/bloc_status.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../cc_base/cc_base_bloc.dart';
 import '../cc_base_impl/cc_base_bloc_impl.dart';
 
 part 'extended_event.dart';
@@ -9,14 +10,14 @@ part 'extended_state.dart';
 
 int _n = 0;
 
-class ExtendedBloc extends CCBaseBlocImpl<CCBaseEventImpl, ExtendedState> {
+class ExtendedBloc extends CCBaseBlocImpl<CCBaseEvent, ExtendedState> {
   ExtendedBloc() : super(ExtendedInitial()) {
     on<ClearError>(onClearError);
     on<CustomExtendedEvent>(_onCustomExtendedEvent);
   }
 
   @override
-  void onClearError(CCBaseEventImpl event, Emitter<CCBaseStateImpl> emit) {
+  void onClearError(CCBaseEvent event, Emitter<CCBaseStateImpl> emit) {
     super.onClearError(event, emit);
     print('did an override');
     _n++;
