@@ -29,7 +29,3 @@ class CCBaseStateImpl extends CCBaseState {
         blocEvent: blocEvent ?? this.blocEvent,
       );
 }
-
-final class CCBaseInitial extends CCBaseStateImpl {
-  const CCBaseInitial();
-}
