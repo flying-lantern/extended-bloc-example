@@ -1,4 +1,4 @@
-import 'package:example_extended_bloc/cc_base/cc_base_bloc.dart';
+import 'package:example_extended_bloc/cc_base_impl/cc_base_bloc_impl.dart';
 import 'package:example_extended_bloc/extended/extended_bloc.dart';
 import 'package:example_extended_bloc/widgets/cc_bloc_consumer.dart';
 import 'package:flutter/material.dart';

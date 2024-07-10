@@ -1,4 +1,4 @@
-part of 'cc_base_bloc.dart';
+part of 'cc_base_bloc_impl.dart';
 
 abstract class CCBaseEvent extends Equatable {
   const CCBaseEvent();

@@ -1,4 +1,4 @@
-part of 'cc_base_bloc.dart';
+part of 'cc_base_bloc_impl.dart';
 
 class CCBaseState extends Equatable {
   const CCBaseState({

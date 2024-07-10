@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc_status.dart';
 
-part 'cc_base_event.dart';
-part 'cc_base_state.dart';
+part 'cc_base_event_impl.dart';
+part 'cc_base_state_impl.dart';
 
 class CCBaseBloc<Event, State extends CCBaseState> extends Bloc<Event, State> {
   CCBaseBloc(super.initialState);
