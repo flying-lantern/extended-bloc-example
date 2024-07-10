@@ -1,0 +1,24 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:example_extended_bloc/cc_base_impl/cc_base_bloc_impl.dart';
+import 'package:example_extended_bloc/util/bloc_status.dart';
+
+import '../cc_base/cc_base_bloc.dart';
+
+part 'registration_event.dart';
+part 'registration_state.dart';
+
+class RegistrationBloc extends CCBaseBlocImpl<CCBaseEvent, RegistrationState> {
+  RegistrationBloc() : super(RegistrationInitial()) {
+    on<FirstNameChanged>(_onFirstNameChanged);
+    on<LastNameChanged>(_onLastNameChanged);
+    on<AgeChanged>(_onAgeChanged);
+  }
+
+  void _onFirstNameChanged(
+      FirstNameChanged event, Emitter<RegistrationState> emit) {}
+
+  void _onLastNameChanged(
+      LastNameChanged event, Emitter<RegistrationState> emit) {}
+
+  void _onAgeChanged(AgeChanged event, Emitter<RegistrationState> emit) {}
+}
