@@ -164,8 +164,9 @@ class RegistrationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return RegistrationBlocConsumer<RegistrationStepBloc, RegistrationState>(
       builder: (_, state) => ElevatedButton(
-        onPressed: () =>
-            context.read<RegistrationStepBloc>().add(const EventOne()),
+        onPressed: () => context
+            .read<RegistrationStepBloc>()
+            .add(const FirstNameChanged(name: '')),
         child: const Text('Registration TestZ'),
       ),
     );

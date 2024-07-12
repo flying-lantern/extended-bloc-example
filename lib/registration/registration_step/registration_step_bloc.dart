@@ -13,4 +13,11 @@ class RegistrationStepBloc extends RegistrationBloc {
   FutureOr<void> _onEventOne(EventOne event, Emitter<RegistrationState> emit) {
     print('Event one!');
   }
+
+  @override
+  void onFirstNameChanged(
+      FirstNameChanged event, Emitter<RegistrationState> emit) {
+    print('Event on registration step bloc!');
+    // super.onFirstNameChanged(event, emit);
+  }
 }

@@ -9,12 +9,12 @@ part 'registration_state.dart';
 
 class RegistrationBloc extends CCBaseBlocImpl<CCBaseEvent, RegistrationState> {
   RegistrationBloc() : super(RegistrationInitial()) {
-    on<FirstNameChanged>(_onFirstNameChanged);
+    on<FirstNameChanged>(onFirstNameChanged);
     on<LastNameChanged>(_onLastNameChanged);
     on<AgeChanged>(_onAgeChanged);
   }
 
-  void _onFirstNameChanged(
+  void onFirstNameChanged(
       FirstNameChanged event, Emitter<RegistrationState> emit) {
     emit(state.copyWith(status: CCBlocStatus.inProgress));
     emit(state.copyWith(fName: event.name, status: CCBlocStatus.success));
