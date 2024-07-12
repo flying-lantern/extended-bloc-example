@@ -1,6 +1,6 @@
 part of 'registration_bloc.dart';
 
-final class RegistrationState extends CCBaseStateImpl {
+class RegistrationState extends CCBaseStateImpl {
   const RegistrationState({
     super.errorCode,
     super.errorMessage,

@@ -1,5 +1,9 @@
 part of 'registration_bloc.dart';
 
+class RegistrationEvent extends CCBaseEventImpl {
+  const RegistrationEvent();
+}
+
 final class FirstNameChanged extends CCBaseEventImpl {
   const FirstNameChanged({required this.name});
   final String name;

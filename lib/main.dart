@@ -5,6 +5,7 @@ import 'package:example_extended_bloc/widgets/registration_bloc_consumer.dart';
 import 'cc_base_impl/cc_base_bloc_impl.dart';
 import 'extended_impl/extended_impl_bloc.dart';
 import 'registration/registration_bloc.dart';
+import 'registration/registration_step/registration_step_bloc.dart';
 import 'widgets/cc_bloc_consumer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -91,8 +92,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           );
                         }),
                     const _TestWidgetTwo(),
-                    BlocProvider<RegistrationBloc>(
-                      create: (context) => RegistrationBloc(),
+                    BlocProvider<RegistrationStepBloc>(
+                      create: (context) => RegistrationStepBloc(),
                       child: const RegistrationWidget(),
                     ),
                   ],
@@ -161,12 +162,11 @@ class RegistrationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RegistrationBlocConsumer<RegistrationBloc, RegistrationState>(
+    return RegistrationBlocConsumer<RegistrationStepBloc, RegistrationState>(
       builder: (_, state) => ElevatedButton(
-        onPressed: () => context
-            .read<RegistrationBloc>()
-            .add(const FirstNameChanged(name: '')),
-        child: const Text('Registration Test'),
+        onPressed: () =>
+            context.read<RegistrationStepBloc>().add(const EventOne()),
+        child: const Text('Registration TestZ'),
       ),
     );
   }
