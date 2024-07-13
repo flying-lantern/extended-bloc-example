@@ -8,9 +8,11 @@ class RegistrationBlocConsumer<B extends StateStreamable<RegistrationState>>
   const RegistrationBlocConsumer({
     super.key,
     required this.builder,
+    this.listener,
   });
 
   final Widget Function(BuildContext, RegistrationState) builder;
+  final void Function(BuildContext, RegistrationState)? listener;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class RegistrationBlocConsumer<B extends StateStreamable<RegistrationState>>
               SnackBar(content: Text('First name is: ${state.fName}'));
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
         }
+        listener?.call(context, state);
       },
       builder: builder,
     );

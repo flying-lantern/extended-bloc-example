@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loader_overlay/loader_overlay.dart';
@@ -19,6 +21,7 @@ class CCBlocConsumer<B extends StateStreamable<S>, S extends CCBaseState>
   Widget build(BuildContext context) {
     return BlocConsumer<B, S>(
       listener: (context, state) {
+        log('Listener in CCBlocConsumer called');
         if (state.status.isInProgress) {
           context.loaderOverlay.show();
         } else {
