@@ -10,6 +10,10 @@ part 'extended_impl_state.dart';
 
 int _n = 0;
 
+/// An example of how [CCBaseBlocImpl] (a concrete implementation of
+/// [CCBaseBloc]) can be extended. Of key importance here; this type of
+/// extension allows for the registration of event handlers. And the concrete
+/// methods defined in the parent class may be overridden.
 class ExtendedImplBloc extends CCBaseBlocImpl<CCBaseEvent, ExtendedImplState> {
   ExtendedImplBloc() : super(ExtendedInitial()) {
     on<ClearError>(onClearError);
