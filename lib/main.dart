@@ -1,7 +1,6 @@
-import 'package:example_extended_bloc/cc_base/cc_base_bloc.dart';
-import 'package:example_extended_bloc/extended_base/extended_base_bloc.dart';
-import 'package:example_extended_bloc/widgets/registration_bloc_consumer.dart';
-
+import 'cc_base/cc_base_bloc.dart';
+import 'extended_base/extended_base_bloc.dart';
+import 'widgets/registration_bloc_consumer.dart';
 import 'cc_base_impl/cc_base_bloc_impl.dart';
 import 'extended_impl/extended_impl_bloc.dart';
 import 'registration/registration_bloc.dart';
@@ -21,13 +20,54 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Extended Bloc Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       home: const LoaderOverlay(
-        child: MyHomePage(title: 'Flutter Demo Home Page'),
+          child: _BlocDemo() //MyHomePage(title: 'Flutter Demo Home Page'),
+          ),
+    );
+  }
+}
+
+class _BlocDemo extends StatelessWidget {
+  const _BlocDemo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Extended Bloc Demo'),
+      ),
+      body: const SingleChildScrollView(
+        child: Column(
+          children: [
+            _ExtendedImplBlocWidget(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ExtendedImplBlocWidget extends StatelessWidget {
+  const _ExtendedImplBlocWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider<ExtendedImplBloc>(
+      create: (_) => ExtendedImplBloc(),
+      child: CCBlocConsumer<ExtendedImplBloc, ExtendedImplState>(
+        builder: (context, state) {
+          return ElevatedButton(
+            onPressed: () => context
+                .read<ExtendedImplBloc>()
+                .add(const CustomExtendedImplEvent(eventProperty: 'test')),
+            child: const Text('ExtendedImplBloc'),
+          );
+        },
       ),
     );
   }
@@ -76,7 +116,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     TextButton(
                         onPressed: () => context.read<ExtendedImplBloc>().add(
-                            const CustomExtendedImplEvent(eventProp: 'test')),
+                            const CustomExtendedImplEvent(
+                                eventProperty: 'test')),
                         child: const Text('Click me')),
                     const TestWidget<ExtendedImplBloc, ExtendedImplState>(),
                     Text('Extended val: ${state.extendedProperty}'),
@@ -87,7 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             onPressed: () => context
                                 .read<ExtendedImplBloc>()
                                 .add(const CustomExtendedImplEvent(
-                                    eventProp: '')),
+                                    eventProperty: '')),
                             child: const Text('CCBlocConsumer'),
                           );
                         }),
