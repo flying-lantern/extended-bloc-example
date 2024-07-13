@@ -162,7 +162,7 @@ class RegistrationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RegistrationBlocConsumer<RegistrationStepBloc, RegistrationState>(
+    return RegistrationBlocConsumer<RegistrationStepBloc>(
       builder: (_, state) => ElevatedButton(
         onPressed: () => context
             .read<RegistrationStepBloc>()
