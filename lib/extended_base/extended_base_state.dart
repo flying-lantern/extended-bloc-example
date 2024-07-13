@@ -2,18 +2,18 @@ part of 'extended_base_bloc.dart';
 
 final class ExtendedBaseState extends CCBaseState {
   const ExtendedBaseState({
-    this.someVal,
+    this.extendedBaseProperty,
     super.status = CCBlocStatus.initial,
     super.errorCode,
     super.errorMessage,
     super.blocEvent,
   });
 
-  final String? someVal;
+  final String? extendedBaseProperty;
 
   @override
   List<Object?> get props => [
-        someVal,
+        extendedBaseProperty,
         status,
         errorCode,
         errorMessage,
@@ -21,13 +21,13 @@ final class ExtendedBaseState extends CCBaseState {
       ];
 
   ExtendedBaseState copyWith(
-          {String? someVal,
+          {String? extendedBaseProperty,
           CCBlocStatus? status,
           String? errorCode,
           String? errorMessage,
           ExtendedBaseEvent? blocEvent}) =>
       ExtendedBaseState(
-        someVal: someVal ?? this.someVal,
+        extendedBaseProperty: extendedBaseProperty ?? this.extendedBaseProperty,
         status: status ?? this.status,
         errorCode: errorCode ?? this.errorCode,
         errorMessage: errorMessage ?? this.errorMessage,

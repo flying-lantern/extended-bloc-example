@@ -149,11 +149,11 @@ class TestWidget<B extends StateStreamable<S>, S extends CCBaseStateImpl>
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<B, S>(listener: (context, state) {
-      print('State changed');
-    }, builder: (context, state) {
-      return Text('${state.errorCode}');
-    });
+    return BlocConsumer<B, S>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          return Text('${state.errorCode}');
+        });
   }
 }
 

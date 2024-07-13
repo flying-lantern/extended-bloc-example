@@ -1,4 +1,4 @@
-import 'dart:async';
+import 'dart:developer';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../registration_bloc.dart';
 
@@ -10,14 +10,14 @@ class RegistrationStepBloc extends RegistrationBloc {
     on<EventOne>(_onEventOne);
   }
 
-  FutureOr<void> _onEventOne(EventOne event, Emitter<RegistrationState> emit) {
-    print('Event one!');
+  void _onEventOne(EventOne event, Emitter<RegistrationState> emit) {
+    log('RegistrationStepBloc: calling _onEventOne.');
   }
 
   @override
   void onFirstNameChanged(
       FirstNameChanged event, Emitter<RegistrationState> emit) {
-    print('Event on registration step bloc!');
-    // super.onFirstNameChanged(event, emit);
+    log('RegistrationStepBloc: calling onFirstNameChanged.');
+    super.onFirstNameChanged(event, emit);
   }
 }

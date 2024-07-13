@@ -6,7 +6,3 @@ class CCBaseEventImpl extends CCBaseEvent {
   @override
   List<Object> get props => [];
 }
-
-final class SomeEvent extends CCBaseEventImpl {
-  const SomeEvent();
-}

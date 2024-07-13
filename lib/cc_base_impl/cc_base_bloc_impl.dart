@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:example_extended_bloc/cc_base/cc_base_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,6 +31,7 @@ class CCBaseBlocImpl<Event, State extends CCBaseStateImpl>
 
   @override
   void onClearError(covariant Event event, Emitter<CCBaseStateImpl> emit) {
+    log('CCBaseBlocImpl: calling onClearError');
     emit(state.copyWith(
       errorCode: '',
       errorMessage: '',

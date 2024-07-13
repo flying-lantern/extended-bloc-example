@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import '../util/bloc_status.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,21 +23,24 @@ class ExtendedImplBloc extends CCBaseBlocImpl<CCBaseEvent, ExtendedImplState> {
 
   @override
   void onClearError(CCBaseEvent event, Emitter<CCBaseStateImpl> emit) {
-    super.onClearError(event, emit);
-    print('did an override');
+    log('ExtendedImplBloc: calling onClearError.');
     _n++;
     emit(state.copyWith(errorCode: '$_n'));
+    super.onClearError(event, emit);
   }
 
   void _onCustomExtendedEvent(
       CustomExtendedImplEvent event, Emitter<CCBaseStateImpl> emit) async {
-    print('Executing custom event: ${event.eventProp}');
+    log('ExtendedImplBloc: calling _onCustomExtendedEvent');
     emit(state.copyWith(status: CCBlocStatus.inProgress));
     await Future.delayed(const Duration(seconds: 3));
+
     _n++;
-    emit(state.copyWith(
-        extendedProperty: 'Hello; extended: $_n',
-        blocEvent: event,
-        status: _n.isEven ? CCBlocStatus.success : CCBlocStatus.failure));
+    emit(
+      state.copyWith(
+          extendedProperty: 'Hello; extended: $_n',
+          blocEvent: event,
+          status: _n.isEven ? CCBlocStatus.success : CCBlocStatus.failure),
+    );
   }
 }

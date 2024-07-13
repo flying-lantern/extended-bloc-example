@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:example_extended_bloc/cc_base_impl/cc_base_bloc_impl.dart';
 import 'package:example_extended_bloc/util/bloc_status.dart';
@@ -16,12 +18,17 @@ class RegistrationBloc extends CCBaseBlocImpl<CCBaseEvent, RegistrationState> {
 
   void onFirstNameChanged(
       FirstNameChanged event, Emitter<RegistrationState> emit) {
+    log('RegistrationBloc: calling onFirstNameChanged.');
     emit(state.copyWith(status: CCBlocStatus.inProgress));
     emit(state.copyWith(fName: event.name, status: CCBlocStatus.success));
   }
 
   void _onLastNameChanged(
-      LastNameChanged event, Emitter<RegistrationState> emit) {}
+      LastNameChanged event, Emitter<RegistrationState> emit) {
+    log('RegistrationBloc: calling _onLastNameChanged.');
+  }
 
-  void _onAgeChanged(AgeChanged event, Emitter<RegistrationState> emit) {}
+  void _onAgeChanged(AgeChanged event, Emitter<RegistrationState> emit) {
+    log('RegistrationBloc: calling _onAgeChanged.');
+  }
 }
