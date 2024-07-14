@@ -14,4 +14,7 @@ unlikely to be the only methods of how blocs may be extended and used.
 Open the uml.svg file directly.
 
 Alternatively, use [mermaid](https://mermaid.live/) or [mermaid editor](https://mermaid-editor.kkeisuke.dev/)
-to view the contents of the mermaid.mermaid file.
+to view the mermaid.mermaid file which renders the entire hierarchy of the project. Below is an illustration
+of just the bloc hierarchy.
+
+![Bloc Hierarchy](../../bloc_hierarchy.png)
