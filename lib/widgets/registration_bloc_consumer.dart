@@ -3,6 +3,8 @@ import 'package:example_extended_bloc/widgets/cc_bloc_consumer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// A widget which exposes a builder and listener to react to new states blocs
+/// with a state of type [RegistrationState].
 class RegistrationBlocConsumer<B extends StateStreamable<RegistrationState>>
     extends StatelessWidget {
   const RegistrationBlocConsumer({
@@ -11,7 +13,10 @@ class RegistrationBlocConsumer<B extends StateStreamable<RegistrationState>>
     this.listener,
   });
 
+  /// The builder function to invoke for each widget build.
   final Widget Function(BuildContext, RegistrationState) builder;
+
+  /// The listener function to execute once per state change.
   final void Function(BuildContext, RegistrationState)? listener;
 
   @override

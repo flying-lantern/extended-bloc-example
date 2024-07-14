@@ -6,6 +6,8 @@ import 'package:loader_overlay/loader_overlay.dart';
 
 import '../cc_base/cc_base_bloc.dart';
 
+/// A widget which exposes a builder and listener to react to new states of any
+/// blocs of type [CCBaseBloc].
 class CCBlocConsumer<B extends StateStreamable<S>, S extends CCBaseState>
     extends StatelessWidget {
   const CCBlocConsumer({
@@ -14,7 +16,10 @@ class CCBlocConsumer<B extends StateStreamable<S>, S extends CCBaseState>
     this.listener,
   });
 
+  /// The builder function to invoke for each widget build.
   final Widget Function(BuildContext, S) builder;
+
+  /// The listener function to execute once per state change.
   final void Function(BuildContext, S)? listener;
 
   @override
