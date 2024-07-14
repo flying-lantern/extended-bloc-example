@@ -15,8 +15,7 @@ class ExtendedBaseBloc extends CCBaseBloc<CCBaseEvent, ExtendedBaseState> {
   }
 
   @override
-  void onClearError(
-      covariant CCBaseEvent event, Emitter<ExtendedBaseState> emit) {
+  void onClearError(CCBaseEvent event, Emitter<ExtendedBaseState> emit) {
     log('ExtendedBaseBloc: calling onClearError.');
   }
 

@@ -31,4 +31,10 @@ class RegistrationBloc extends CCBaseBlocImpl<CCBaseEvent, RegistrationState> {
   void _onAgeChanged(AgeChanged event, Emitter<RegistrationState> emit) {
     log('RegistrationBloc: calling _onAgeChanged.');
   }
+
+  @override
+  void onInit(Init event, Emitter<CCBaseStateImpl> emit) {
+    log('RegistrationBloc: calling _onInit.');
+    super.onInit(event, emit);
+  }
 }

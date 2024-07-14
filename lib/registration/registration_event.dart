@@ -4,17 +4,22 @@ class RegistrationEvent extends CCBaseEventImpl {
   const RegistrationEvent();
 }
 
-final class FirstNameChanged extends CCBaseEventImpl {
+final class Init extends RegistrationEvent {
+  const Init({required this.initialValue});
+  final String initialValue;
+}
+
+final class FirstNameChanged extends RegistrationEvent {
   const FirstNameChanged({required this.name});
   final String name;
 }
 
-final class LastNameChanged extends CCBaseEventImpl {
+final class LastNameChanged extends RegistrationEvent {
   const LastNameChanged({required this.name});
   final String name;
 }
 
-final class AgeChanged extends CCBaseEventImpl {
+final class AgeChanged extends RegistrationEvent {
   const AgeChanged({required this.age});
   final int age;
 }

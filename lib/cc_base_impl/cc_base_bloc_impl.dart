@@ -1,8 +1,6 @@
 import 'dart:developer';
-
 import 'package:example_extended_bloc/cc_base/cc_base_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../util/bloc_status.dart';
 
 part 'cc_base_event_impl.dart';
@@ -30,12 +28,27 @@ class CCBaseBlocImpl<Event, State extends CCBaseStateImpl>
   CCBaseBlocImpl(super.initialState);
 
   @override
-  void onClearError(covariant Event event, Emitter<CCBaseStateImpl> emit) {
+  void onClearError(Event event, Emitter<CCBaseStateImpl> emit) {
     log('CCBaseBlocImpl: calling onClearError');
     emit(state.copyWith(
       errorCode: '',
       errorMessage: '',
       status: CCBlocStatus.initial,
     ));
+  }
+
+  /// An event defined by this concrete implementation of [CCBaseBloc].
+  ///
+  /// The covariant keyword is used to modify [Event] to indicate that it can be
+  /// safely widened in the inheritance hierarchy. This means that a sub class
+  /// of [CCBaseBlocImpl] is allowed to use a more specific class of [Event]. On
+  /// occasion, event classes are tailored to the specific event being handled
+  /// and may define event parameters that need to be set. If the covariant
+  /// keyword is omitted then the event handlers will be forced to cast the more
+  /// generic [Event] type to its more specific form before any properties being
+  /// shipped with the specific event can be accessed. This can be cumbersome
+  /// and repetitive code which will also need error handling.
+  void onInit(covariant Event event, Emitter<CCBaseStateImpl> emit) {
+    log('CCBaseBlocImpl: calling onInit');
   }
 }
