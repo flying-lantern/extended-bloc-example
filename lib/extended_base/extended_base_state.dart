@@ -1,5 +1,8 @@
 part of 'extended_base_bloc.dart';
 
+/// An extension of [CCBaseState].
+///
+/// Initializes super parameters and can define it's own.
 final class ExtendedBaseState extends CCBaseState {
   const ExtendedBaseState({
     this.extendedBaseProperty,
@@ -9,6 +12,7 @@ final class ExtendedBaseState extends CCBaseState {
     super.blocEvent,
   });
 
+  /// A custom state property.
   final String? extendedBaseProperty;
 
   @override

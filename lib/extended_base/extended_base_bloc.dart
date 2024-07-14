@@ -14,9 +14,6 @@ part 'extended_base_state.dart';
 /// While this direct extension of [CCBaseBloc] may seem very similar to the
 /// extension made by [CCBaseBlocImpl], the key difference is that extending
 /// this way allows [ExtendedBaseBloc] to register its own event handlers.
-///
-/// However, unlike [CCBaseBlocImpl] when this bloc is extended, the child
-/// bloc's state
 class ExtendedBaseBloc extends CCBaseBloc<CCBaseEvent, ExtendedBaseState> {
   ExtendedBaseBloc() : super(const ExtendedBaseInitial()) {
     on<ClearError>(onClearError);

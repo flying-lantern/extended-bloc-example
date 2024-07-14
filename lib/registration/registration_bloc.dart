@@ -1,9 +1,7 @@
 import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:example_extended_bloc/cc_base_impl/cc_base_bloc_impl.dart';
 import 'package:example_extended_bloc/util/bloc_status.dart';
-
 import '../cc_base/cc_base_bloc.dart';
 
 part 'registration_event.dart';
