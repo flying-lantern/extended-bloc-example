@@ -7,6 +7,10 @@ import '../cc_base/cc_base_bloc.dart';
 part 'registration_event.dart';
 part 'registration_state.dart';
 
+/// An example of how [CCBaseBlocImpl] can be extended.
+///
+/// [RegistrationBloc] is a more refined example and intends to demonstrate how
+/// [CCBaseBlocImpl] may be used in a more practical sense.
 class RegistrationBloc extends CCBaseBlocImpl<CCBaseEvent, RegistrationState> {
   RegistrationBloc() : super(RegistrationInitial()) {
     on<FirstNameChanged>(onFirstNameChanged);

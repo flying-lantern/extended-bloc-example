@@ -5,6 +5,10 @@ import '../registration_bloc.dart';
 part 'registration_step_event.dart';
 part 'registration_step_state.dart';
 
+/// [RegistrationStepBloc] demonstrates yet another bloc extension.
+///
+/// This bloc is able to define its own events and/or call and override parent
+/// events.
 class RegistrationStepBloc extends RegistrationBloc {
   RegistrationStepBloc() : super() {
     on<EventOne>(_onEventOne);
