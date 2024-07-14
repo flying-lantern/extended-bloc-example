@@ -1,5 +1,10 @@
 part of 'cc_base_bloc_impl.dart';
 
+/// Holds state information of [CCBaseBlocImpl].
+///
+/// Initializes the properties of its parent class and provides an
+/// implementation of copyWith. One is free to provide any additional state
+/// properties here as well.
 class CCBaseStateImpl extends CCBaseState {
   const CCBaseStateImpl({
     super.errorCode,

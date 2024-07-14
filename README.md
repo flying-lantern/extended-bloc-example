@@ -1,16 +1,7 @@
 # example_extended_bloc
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+A project intended to demonstrate various ways blocs can be extended and
+manipulated. This project in no way makes any strong recommendations of how the
+the inheritance hierarchy of a project making use of flutter bloc should be
+orchestrated, but rather attempts to provide guide of a few ways in which it may
+be achieved.
