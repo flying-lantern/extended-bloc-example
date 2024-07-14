@@ -9,3 +9,9 @@ be achieved.
 This project is primarily a playground and there are most likely mistakes and
 room for further discoveries and refinement. The techniques demonstrated are
 unlikely to be the only methods of how blocs may be extended and used.
+
+## Viewing UML diagram
+Open the uml.svg file directly.
+
+Alternatively, use [mermaid](https://mermaid.live/) or [mermaid editor](https://mermaid-editor.kkeisuke.dev/)
+to view the contents of the mermaid.mermaid file.
