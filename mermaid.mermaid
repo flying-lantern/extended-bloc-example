@@ -1,0 +1,182 @@
+classDiagram
+class RegistrationBloc
+RegistrationBloc : +onFirstNameChanged() void
+RegistrationBloc : -_onLastNameChanged() void
+RegistrationBloc : -_onAgeChanged() void
+RegistrationBloc : +onInit() void
+CCBaseBlocImpl <|-- RegistrationBloc
+
+class RegistrationEvent
+CCBaseEventImpl <|-- RegistrationEvent
+
+class Init
+Init : +initialValue String
+RegistrationEvent <|-- Init
+
+class FirstNameChanged
+FirstNameChanged : +name String
+RegistrationEvent <|-- FirstNameChanged
+
+class LastNameChanged
+LastNameChanged : +name String
+RegistrationEvent <|-- LastNameChanged
+
+class AgeChanged
+AgeChanged : +age int
+RegistrationEvent <|-- AgeChanged
+
+class RegistrationState
+RegistrationState : +fName String?
+RegistrationState : +lName String?
+RegistrationState : +age int?
+RegistrationState : +props List~Object?~
+RegistrationState : +copyWith() RegistrationState
+CCBaseStateImpl <|-- RegistrationState
+
+class RegistrationInitial
+RegistrationState <|-- RegistrationInitial
+
+class RegistrationStepBloc
+RegistrationStepBloc : -_onEventOne() void
+RegistrationStepBloc : +onFirstNameChanged() void
+RegistrationBloc <|-- RegistrationStepBloc
+
+class RegistrationStepEvent
+RegistrationStepEvent : +props List~Object~
+RegistrationEvent <|-- RegistrationStepEvent
+
+class EventOne
+RegistrationStepEvent <|-- EventOne
+
+class RegistrationStepState
+RegistrationStepState : +props List~Object~
+RegistrationState <|-- RegistrationStepState
+
+class RegistrationStepInitial
+RegistrationStepState <|-- RegistrationStepInitial
+
+class ExtendedBaseBloc
+ExtendedBaseBloc : +onClearError() void
+ExtendedBaseBloc : -_onExtendedBaseEvent() void
+CCBaseBloc <|-- ExtendedBaseBloc
+
+class ExtendedBaseEvent
+CCBaseEvent <|-- ExtendedBaseEvent
+
+class ExtendedBaseState
+ExtendedBaseState : +extendedBaseProperty String?
+ExtendedBaseState : +props List~Object?~
+ExtendedBaseState : +copyWith() ExtendedBaseState
+CCBaseState <|-- ExtendedBaseState
+
+class ExtendedBaseInitial
+ExtendedBaseState <|-- ExtendedBaseInitial
+
+class CCBlocStatus
+<<enumeration>> CCBlocStatus
+CCBlocStatus : +index int
+CCBlocStatus : +values$ List~CCBlocStatus~
+CCBlocStatus : +initial$ CCBlocStatus
+CCBlocStatus o-- CCBlocStatus
+CCBlocStatus : +success$ CCBlocStatus
+CCBlocStatus o-- CCBlocStatus
+CCBlocStatus : +failure$ CCBlocStatus
+CCBlocStatus o-- CCBlocStatus
+CCBlocStatus : +noSearchResults$ CCBlocStatus
+CCBlocStatus o-- CCBlocStatus
+CCBlocStatus : +inProgress$ CCBlocStatus
+CCBlocStatus o-- CCBlocStatus
+CCBlocStatus : +canceled$ CCBlocStatus
+CCBlocStatus o-- CCBlocStatus
+Enum <|.. CCBlocStatus
+
+class CCBaseBloc
+<<abstract>> CCBaseBloc
+CCBaseBloc : +onClearError()* void
+Bloc <|-- CCBaseBloc
+
+class CCBaseEvent
+<<abstract>> CCBaseEvent
+CCBaseEvent : +props List~Object~
+Equatable <|-- CCBaseEvent
+
+class ClearError
+CCBaseEvent <|-- ClearError
+
+class CCBaseState
+<<abstract>> CCBaseState
+CCBaseState : +status CCBlocStatus
+CCBaseState o-- CCBlocStatus
+CCBaseState : +errorCode String?
+CCBaseState : +errorMessage String?
+CCBaseState : +blocEvent CCBaseEvent?
+CCBaseState o-- CCBaseEvent
+Equatable <|-- CCBaseState
+
+class BlocDemo
+BlocDemo : +build() Widget
+StatelessWidget <|-- BlocDemo
+
+class _BlocDemo
+_BlocDemo : +build() Widget
+StatelessWidget <|-- _BlocDemo
+
+class _ExtendedImplBlocWidget
+_ExtendedImplBlocWidget : +build() Widget
+StatelessWidget <|-- _ExtendedImplBlocWidget
+
+class _ExtendedBaseBlocWidget
+_ExtendedBaseBlocWidget : +build() Widget
+StatelessWidget <|-- _ExtendedBaseBlocWidget
+
+class _RegistrationBlocWidget
+_RegistrationBlocWidget : +build() Widget
+StatelessWidget <|-- _RegistrationBlocWidget
+
+class _RegistrationStepBlocWidget
+_RegistrationStepBlocWidget : +build() Widget
+StatelessWidget <|-- _RegistrationStepBlocWidget
+
+class CCBaseBlocImpl
+CCBaseBlocImpl : +onClearError() void
+CCBaseBlocImpl : +onInit() void
+CCBaseBloc <|-- CCBaseBlocImpl
+
+class CCBaseEventImpl
+CCBaseEventImpl : +props List~Object~
+CCBaseEvent <|-- CCBaseEventImpl
+
+class CCBaseStateImpl
+CCBaseStateImpl : +props List~Object?~
+CCBaseStateImpl : +copyWith() CCBaseStateImpl
+CCBaseState <|-- CCBaseStateImpl
+
+class ExtendedImplBloc
+ExtendedImplBloc : +onClearError() void
+ExtendedImplBloc : -_onCustomExtendedEvent() void
+CCBaseBlocImpl <|-- ExtendedImplBloc
+
+class CustomExtendedImplEvent
+CustomExtendedImplEvent : +eventProperty String
+CCBaseEventImpl <|-- CustomExtendedImplEvent
+
+class ExtendedImplState
+ExtendedImplState : +extendedProperty String?
+ExtendedImplState : +props List~Object?~
+ExtendedImplState : +copyWith() ExtendedImplState
+CCBaseStateImpl <|-- ExtendedImplState
+
+class ExtendedInitial
+ExtendedImplState <|-- ExtendedInitial
+
+class RegistrationBlocConsumer
+RegistrationBlocConsumer : + Widget Function &#40BuildContext, RegistrationState&#41 builder
+RegistrationBlocConsumer : + void Function &#40BuildContext, RegistrationState&#41? listener
+RegistrationBlocConsumer : +build() Widget
+StatelessWidget <|-- RegistrationBlocConsumer
+
+class CCBlocConsumer
+CCBlocConsumer : + Widget Function &#40BuildContext, S&#41 builder
+CCBlocConsumer : + void Function &#40BuildContext, S&#41? listener
+CCBlocConsumer : +build() Widget
+StatelessWidget <|-- CCBlocConsumer
