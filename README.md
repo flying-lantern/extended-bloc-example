@@ -17,4 +17,4 @@ Alternatively, use [mermaid](https://mermaid.live/) or [mermaid editor](https://
 to view the mermaid.mermaid file which renders the entire hierarchy of the project. Below is an illustration
 of just the bloc hierarchy.
 
-![Bloc Hierarchy](../../bloc_hierarchy.png)
+![Bloc Hierarchy](bloc_hierarchy.png)
