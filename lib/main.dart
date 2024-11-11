@@ -30,7 +30,7 @@ class BlocDemo extends StatelessWidget {
 }
 
 class _BlocDemo extends StatelessWidget {
-  const _BlocDemo({super.key});
+  const _BlocDemo();
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class _BlocDemo extends StatelessWidget {
 }
 
 class _ExtendedImplBlocWidget extends StatelessWidget {
-  const _ExtendedImplBlocWidget({super.key});
+  const _ExtendedImplBlocWidget();
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +83,7 @@ class _ExtendedImplBlocWidget extends StatelessWidget {
 }
 
 class _ExtendedBaseBlocWidget extends StatelessWidget {
-  const _ExtendedBaseBlocWidget({super.key});
+  const _ExtendedBaseBlocWidget();
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +105,7 @@ class _ExtendedBaseBlocWidget extends StatelessWidget {
 }
 
 class _RegistrationBlocWidget extends StatelessWidget {
-  const _RegistrationBlocWidget({super.key});
+  const _RegistrationBlocWidget();
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +125,7 @@ class _RegistrationBlocWidget extends StatelessWidget {
 }
 
 class _RegistrationStepBlocWidget extends StatelessWidget {
-  const _RegistrationStepBlocWidget({super.key});
+  const _RegistrationStepBlocWidget();
 
   @override
   Widget build(BuildContext context) {
